@@ -35,7 +35,6 @@ public class AddressBook {
 		sc.close();
 
 	}
-	//printing output  
 
 	void display() {
 		System.out.println("Name:"+firstName+" "+lastName);
@@ -45,9 +44,15 @@ public class AddressBook {
 		System.out.println("Phone Number:"+phoneNumber);
 		System.out.println("Email Id:"+emailId);
 	}
+
+	 void ChangingPhoneNumber (String a){
+
+	}
 	public static void main(String []args) {
 		AddressBook obj=new AddressBook();
 		obj.getDetails();
+		obj.display();
+		obj.ChangingPhoneNumber("7709364334");
 		obj.display();
 	}
 }
