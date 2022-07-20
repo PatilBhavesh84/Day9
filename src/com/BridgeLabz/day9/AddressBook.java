@@ -3,7 +3,7 @@ package com.BridgeLabz.day9;
 import java.util.*;
 
 public class AddressBook {
-
+	
 	String firstName,lastName,address,city,state,emailId,phoneNumber;
 	int zip;
 	void getDetails() {
@@ -46,7 +46,8 @@ public class AddressBook {
 	}
 
 	 void ChangingPhoneNumber (String a){
-
+	 }
+	 void DeletingName (String a) {
 	}
 	public static void main(String []args) {
 		AddressBook obj=new AddressBook();
@@ -54,5 +55,9 @@ public class AddressBook {
 		obj.display();
 		obj.ChangingPhoneNumber("7709364334");
 		obj.display();
+	    obj.DeletingName("null");  
+	    obj.display();
+	   
 	}
+    
 }
