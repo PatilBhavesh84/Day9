@@ -35,7 +35,7 @@ public class ContactBook  {
 
 			AddressBook p = entry.getValue();
 
-			if (p.city.equals("Mumbai")) {
+			if (p.city.equals("Shahada")) {
 				System.out.println(p.firstName+" "+p.lastName+" Details \nfirstName: "+p.firstName +"\nLastName: " +p.lastName + "\nAddress: "
 						+ p.address + "\nCity :"+p.city+"\nState: "+p.state+"\nEmailID: " +p.emailId+"\nPhoneNumber: "+ p.phoneNumber+"\nZip: "+p.zip);   
 				System.out.println();
