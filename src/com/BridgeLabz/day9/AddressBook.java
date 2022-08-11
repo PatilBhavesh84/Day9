@@ -21,7 +21,6 @@ public class AddressBook {
 		this.addressBook = addressBook;
 	}
 
-	// method to check for duplicate entry
 	public boolean checkDuplicateEntry(ContactBook contact) {
 		boolean status = false;
 		for (ContactBook person : addressBook) {
@@ -30,7 +29,6 @@ public class AddressBook {
 		return status;
 	}
 
-	// ADD CONTACT
 	public void addContact(ContactBook contact) {
 		boolean duplicateStatus = checkDuplicateEntry(contact);
 		if (!duplicateStatus) {
@@ -113,7 +111,6 @@ public class AddressBook {
 		}
 	}
 
-	// DELETE contact from the address book by the FIRSTNAME
 	public void deleteContact(String firstname) {
 		String deleteName;
 		for (ContactBook contact : addressBook) {
@@ -127,5 +124,4 @@ public class AddressBook {
 			}
 		}
 	}
-
 }
