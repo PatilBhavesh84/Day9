@@ -3,16 +3,13 @@ package com.BridgeLabz.day9;
 import java.util.*;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-
 public class AddressbookMain {
 	public static Map<String, AddressBook> addressBookHashMap = new HashMap<>();
 	Scanner scanner = new Scanner(System.in);
 
-	// USER INPUT
 	public void addDataToAddressBook() {
 
 		String chooseContact, chooseCity;
-
 		do {
 			System.out.println("Enter the name of city");
 			String city = scanner.nextLine();
@@ -59,11 +56,7 @@ public class AddressbookMain {
 			chooseCity = scanner.nextLine();
 		} while (chooseCity.equalsIgnoreCase("yes"));
 		System.out.println("Returning");
-
-
 	}
-
-	// Search Contact By City or State
 	public static void searchContactByCityOrState(String city, String name) {
 		List<ContactBook> contactList = new ArrayList<>();
 
@@ -75,8 +68,6 @@ public class AddressbookMain {
 			System.out.println("Search result: " + contact);
 		}
 	}
-
-	// method to view person by city
 	public static void viewContactByCityOrState(String city) {
 		List<ContactBook> list = new ArrayList<>();
 		for (Map.Entry<String, AddressBook> entries : addressBookHashMap.entrySet()) {
@@ -87,8 +78,6 @@ public class AddressbookMain {
 			System.out.println(person.getFirstName() + " " + person.getLastName());
 		}
 	}
-
-	// method to get number of contact persons by city
 	public static void getCountByCity(String city) {
 		long count1 = 0;
 		for (Map.Entry<String, AddressBook> entries : addressBookHashMap.entrySet()) {
@@ -97,8 +86,6 @@ public class AddressbookMain {
 		}
 		System.out.println(count1 + " Contacts in " + city);
 	}
-
-	// method to sort the entries alphabetically by person's Name
 	public static void sortByName() {
 		List<ContactBook> list = new ArrayList<>();
 		for (Map.Entry<String, AddressBook> entries : addressBookHashMap.entrySet()) {
@@ -107,8 +94,22 @@ public class AddressbookMain {
 		list.stream().sorted((p1, p2) -> ((String) p1.getFirstName()).compareTo(p2.getFirstName()))
 		.forEach(contact -> System.out.println(contact.getFirstName() + " " + contact.getLastName()));
 	}
-
-	// MAIN METHOD
+	public static void sortByZip() {
+		List<ContactBook> list = new ArrayList<>();
+		for (Map.Entry<String, AddressBook> entries : addressBookHashMap.entrySet()) {
+			list = entries.getValue().getAddressBook().stream().collect(Collectors.toList());
+		}
+		list.stream().sorted((p1, p2) -> ((String) p1.getZip()).compareTo(p2.getZip()))
+		.forEach(contact -> System.out.println(contact.getFirstName() + " " + contact.getLastName()));
+	}
+	public static void sortByCity(){
+		List<ContactBook> list = new ArrayList<>();
+		for (Map.Entry<String, AddressBook> entries : addressBookHashMap.entrySet()) {
+			list = entries.getValue().getAddressBook().stream().collect(Collectors.toList());
+		}
+		list.stream().sorted((p1 , p2) -> ((String)p1.getCity()).compareTo(p2.getCity()))
+		.forEach(contact -> System.out.println(contact.getFirstName()+" "+contact.getLastName()+ " From " +contact.getCity()));
+	}
 	public static void main(String[] args) {
 		System.out.println("                             Welcome To Address Book");
 		Scanner scanner = new Scanner(System.in);
@@ -189,5 +190,4 @@ public class AddressbookMain {
 			}
 		} while (choice != 0);
 	}
-
 }

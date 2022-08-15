@@ -28,7 +28,6 @@ public class AddressBook {
 		}
 		return status;
 	}
-
 	public void addContact(ContactBook contact) {
 		boolean duplicateStatus = checkDuplicateEntry(contact);
 		if (!duplicateStatus) {
@@ -40,8 +39,7 @@ public class AddressBook {
 		System.out.println("AddressBook Data : " + addressBook);
 	}
 
-	// EDIT contact from the addressBook by the FIRSTNAME
-	public void editContactByFirstName(String firstname) {
+		public void editContactByFirstName(String firstname) {
 		String editName;
 		Integer choice;
 		for (ContactBook contact : addressBook) {
